@@ -1582,3 +1582,6 @@ RuntimeError: Failed to save detection: column "species" of relation "detections
 2026-03-18 03:21:27,353 | DEBUG    | databases | Query:          SELECT             species,             MAX(confidence) as max_conf,             COUNT(id) as total_detections,             MAX(create_at) as last_seen         FROM detections         GROUP BY species         ORDER BY species ASC      Args: ()
 2026-03-18 03:21:42,980 | DEBUG    | databases | Query:          SELECT * FROM detections         ORDER BY create_at DESC         LIMIT $1 OFFSET $2      Args: (50, 0)
 2026-03-18 03:21:45,817 | DEBUG    | databases | Query:          SELECT             species,             MAX(confidence) as max_conf,             COUNT(id) as total_detections,             MAX(create_at) as last_seen         FROM detections         GROUP BY species         ORDER BY species ASC      Args: ()
+2026-03-18 03:54:43,069 | INFO     | main | Shutting down...
+2026-03-18 03:54:43,070 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 03:54:43,070 | INFO     | main | Database disconnected.
