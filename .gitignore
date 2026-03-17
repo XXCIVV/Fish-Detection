@@ -17,6 +17,9 @@ app/models/*.onnx
 # ignore logs
 logs/
 
+# Ignore Dockerfile
+dockerfile
+
 # Ignore User uploads
 app/static/uploads/*
 app/static/outputs/*
