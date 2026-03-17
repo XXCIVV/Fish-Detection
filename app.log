@@ -1,0 +1,689 @@
+2026-03-17 23:04:16,172 | INFO     | main | Starting up — env: development
+2026-03-17 23:04:16,643 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-17 23:04:16,643 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-17 23:04:16,643 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-17 23:04:28,160 | ERROR    | main | Unhandled server error: '404.html' not found in search path: 'app/templates'
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 766, in app
+    await self.default(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 652, in not_found
+    raise HTTPException(status_code=404)
+starlette.exceptions.HTTPException: 404: Not Found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 59, in wrapped_app
+    response = await handler(conn, exc)
+  File "D:\VSproject\aie223-midterm\web_app\main.py", line 105, in not_found_handler
+    return templates.TemplateResponse(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\templating.py", line 209, in TemplateResponse
+    template = self.get_template(name)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\templating.py", line 132, in get_template
+    return self.env.get_template(name)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\jinja2\loaders.py", line 209, in get_source
+    raise TemplateNotFound(
+jinja2.exceptions.TemplateNotFound: '404.html' not found in search path: 'app/templates'
+2026-03-18 00:25:40,624 | INFO     | main | Shutting down...
+2026-03-18 00:25:40,628 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 00:25:40,630 | INFO     | main | Database disconnected.
+2026-03-18 00:25:50,315 | INFO     | main | Starting up — env: development
+2026-03-18 00:25:50,780 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 00:25:50,780 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 00:25:50,781 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 01:04:26,554 | INFO     | main | Shutting down...
+2026-03-18 01:04:26,556 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:04:26,556 | INFO     | main | Database disconnected.
+2026-03-18 01:04:35,597 | INFO     | main | Starting up — env: development
+2026-03-18 01:04:36,026 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:04:36,026 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 01:04:36,026 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 01:06:38,940 | INFO     | main | Shutting down...
+2026-03-18 01:06:38,971 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:06:38,971 | INFO     | main | Database disconnected.
+2026-03-18 01:06:44,885 | INFO     | main | Starting up — env: development
+2026-03-18 01:06:45,286 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:06:45,287 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 01:06:45,287 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 01:53:56,232 | ERROR    | main | Unhandled server error: File at path app/static/favicon.ico does not exist.
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 349, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'app/static/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 117, in app
+    await response(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 352, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path app/static/favicon.ico does not exist.
+2026-03-18 01:54:02,433 | ERROR    | main | Unhandled server error: File at path app/static/favicon.ico does not exist.
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 349, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'app/static/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 117, in app
+    await response(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 352, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path app/static/favicon.ico does not exist.
+2026-03-18 01:54:03,898 | ERROR    | main | Unhandled server error: File at path app/static/favicon.ico does not exist.
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 349, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'app/static/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 117, in app
+    await response(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 352, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path app/static/favicon.ico does not exist.
+2026-03-18 01:54:04,537 | ERROR    | main | Unhandled server error: File at path app/static/favicon.ico does not exist.
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 349, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'app/static/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 117, in app
+    await response(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 352, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path app/static/favicon.ico does not exist.
+2026-03-18 01:54:04,835 | ERROR    | main | Unhandled server error: File at path app/static/favicon.ico does not exist.
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 349, in __call__
+    stat_result = await anyio.to_thread.run_sync(os.stat, self.path)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 2502, in run_sync_in_worker_thread
+    return await future
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\anyio\_backends\_asyncio.py", line 986, in run
+    result = context.run(func, *args)
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'app/static/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 117, in app
+    await response(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\responses.py", line 352, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path app/static/favicon.ico does not exist.
+2026-03-18 01:54:35,959 | INFO     | main | Shutting down...
+2026-03-18 01:54:35,960 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:54:35,960 | INFO     | main | Database disconnected.
+2026-03-18 01:54:44,995 | INFO     | main | Starting up — env: development
+2026-03-18 01:54:45,417 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:54:45,419 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 01:54:45,419 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 01:55:37,790 | INFO     | main | Shutting down...
+2026-03-18 01:55:37,806 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:55:37,807 | INFO     | main | Database disconnected.
+2026-03-18 01:55:48,138 | INFO     | main | Starting up — env: development
+2026-03-18 01:55:48,530 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:55:48,530 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 01:55:48,530 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 01:57:40,050 | INFO     | main | Shutting down...
+2026-03-18 01:57:40,067 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:57:40,067 | INFO     | main | Database disconnected.
+2026-03-18 01:57:48,706 | INFO     | main | Starting up — env: development
+2026-03-18 01:57:49,099 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:57:49,099 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 01:57:49,099 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 01:58:43,992 | INFO     | main | Shutting down...
+2026-03-18 01:58:44,008 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 01:58:44,008 | INFO     | main | Database disconnected.
+2026-03-18 02:26:47,784 | INFO     | main | Starting up — env: development
+2026-03-18 02:26:48,167 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:26:48,167 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:26:48,167 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 02:27:13,497 | INFO     | main | Shutting down...
+2026-03-18 02:27:13,513 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:27:13,514 | INFO     | main | Database disconnected.
+2026-03-18 02:27:24,818 | INFO     | main | Starting up — env: development
+2026-03-18 02:27:25,283 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:27:25,283 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:27:25,283 | CRITICAL | main | YOLO model failed to load from app/models/best.pt — predictions will return 503 until fixed.
+2026-03-18 02:30:51,414 | INFO     | main | Shutting down...
+2026-03-18 02:30:51,429 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:30:51,430 | INFO     | main | Database disconnected.
+2026-03-18 02:31:00,827 | INFO     | main | Starting up — env: development
+2026-03-18 02:31:01,202 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:31:01,203 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:31:01,203 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:31:03,012 | INFO     | main | Shutting down...
+2026-03-18 02:31:03,029 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:31:03,029 | INFO     | main | Database disconnected.
+2026-03-18 02:31:26,733 | INFO     | main | Starting up — env: development
+2026-03-18 02:31:27,108 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:31:27,108 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:31:27,108 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:31:56,782 | DEBUG    | databases | Query:          SELECT * FROM detections         ORDER BY created_at DESC         LIMIT $1 OFFSET $2      Args: (50, 0)
+2026-03-18 02:31:56,786 | ERROR    | app.routes.history | Failed to load history page: Failed to fetch detection history: column "created_at" does not exist
+HINT:  Perhaps you meant to reference the column "detections.create_at".
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 98, in get_all_history
+    rows = await database.fetch_all(query=query, values={"limit": limit, "offset": offset})
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 174, in fetch_all
+    return await connection.fetch_all(query, values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 290, in fetch_all
+    return await self._connection.fetch_all(built_query)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\backends\postgres.py", line 105, in fetch_all
+    rows = await self._connection.fetch(query_str, *args)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 2013, in _do_execute
+    stmt = await self._get_statement(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "created_at" does not exist
+HINT:  Perhaps you meant to reference the column "detections.create_at".
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\routes\history.py", line 20, in history_page
+    detections = await get_all_history(limit=50, offset=0)
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 100, in get_all_history
+    raise RuntimeError(f"Failed to fetch detection history: {e}")
+RuntimeError: Failed to fetch detection history: column "created_at" does not exist
+HINT:  Perhaps you meant to reference the column "detections.create_at".
+2026-03-18 02:32:50,016 | INFO     | main | Shutting down...
+2026-03-18 02:32:50,032 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:32:50,033 | INFO     | main | Database disconnected.
+2026-03-18 02:32:55,406 | INFO     | main | Starting up — env: development
+2026-03-18 02:32:55,780 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:32:55,781 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:32:55,781 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:34:04,001 | INFO     | main | Shutting down...
+2026-03-18 02:34:04,017 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:34:04,017 | INFO     | main | Database disconnected.
+2026-03-18 02:34:09,047 | INFO     | main | Starting up — env: development
+2026-03-18 02:34:09,412 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:34:09,412 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:34:09,412 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:35:46,157 | INFO     | main | Shutting down...
+2026-03-18 02:35:46,175 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:35:46,175 | INFO     | main | Database disconnected.
+2026-03-18 02:35:51,500 | INFO     | main | Starting up — env: development
+2026-03-18 02:35:51,872 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:35:51,872 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:35:51,872 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:40:13,664 | INFO     | main | Shutting down...
+2026-03-18 02:40:13,678 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:40:13,678 | INFO     | main | Database disconnected.
+2026-03-18 02:40:18,684 | INFO     | main | Starting up — env: development
+2026-03-18 02:40:19,054 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:40:19,054 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:40:19,054 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:42:00,499 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-03-18 02:42:00,499 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-03-18 02:42:00,500 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:150]
+2026-03-18 02:42:00,500 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:42:00,500 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[152:164]
+2026-03-18 02:42:00,500 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[166:176]
+2026-03-18 02:42:00,501 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:42:00,501 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-03-18 02:42:00,501 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[180:16384]
+2026-03-18 02:42:00,502 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:60893]
+2026-03-18 02:42:00,502 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-03-18 02:42:00,502 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-03-18 02:42:00,521 | DEBUG    | databases | Query:          INSERT INTO sessions (id, device_info)         VALUES ($2, $1)      Args: ('Single Upload', '8babd5ba-82d4-4980-9c9d-0ac6b7caa527')
+2026-03-18 02:42:02,392 | INFO     | app.model.detector | Detected 1 object(s)
+2026-03-18 02:42:02,564 | INFO     | app.utils.draw_boxes | Saved annotated image to app\static\outputs\14a40ead53774933ad52e4f87c25c895.jpg
+2026-03-18 02:42:02,564 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[83.95677185058594, 3.15924072265625, 243.8144989013672, 619.431884765625]', 0.6047, None, '8babd5ba-82d4-4980-9c9d-0ac6b7caa527', 'Puti')
+2026-03-18 02:42:02,565 | ERROR    | app.routes.predict | Prediction failed: Failed to save detection: column "species" of relation "detections" does not exist
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 70, in save_detection
+    await database.execute(query=query, values=values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 199, in execute
+    return await connection.execute(query, values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 318, in execute
+    return await self._connection.execute(built_query)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\backends\postgres.py", line 141, in execute
+    return await self._connection.fetchval(query_str, *args)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 718, in fetchval
+    data = await self._execute(query, args, 1, timeout)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 2013, in _do_execute
+    stmt = await self._get_statement(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "species" of relation "detections" does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\routes\predict.py", line 55, in predict_image
+    await save_detection(
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 72, in save_detection
+    raise RuntimeError(f"Failed to save detection: {e}")
+RuntimeError: Failed to save detection: column "species" of relation "detections" does not exist
+2026-03-18 02:42:02,568 | DEBUG    | databases | Query:          UPDATE sessions         SET end_time = $1         WHERE id = $2      Args: (datetime.datetime(2026, 3, 17, 19, 42, 2, 568958, tzinfo=datetime.timezone.utc), '8babd5ba-82d4-4980-9c9d-0ac6b7caa527')
+2026-03-18 02:42:02,569 | ERROR    | main | Unhandled server error: Failed to close session 8babd5ba-82d4-4980-9c9d-0ac6b7caa527: invalid input for query argument $1: datetime.datetime(2026, 3, 17, 19, 42, 2... (can't subtract offset-naive and offset-aware datetimes)
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 70, in save_detection
+    await database.execute(query=query, values=values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 199, in execute
+    return await connection.execute(query, values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 318, in execute
+    return await self._connection.execute(built_query)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\backends\postgres.py", line 141, in execute
+    return await self._connection.fetchval(query_str, *args)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 718, in fetchval
+    data = await self._execute(query, args, 1, timeout)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 2013, in _do_execute
+    stmt = await self._get_statement(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "species" of relation "detections" does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\routes\predict.py", line 55, in predict_image
+    await save_detection(
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 72, in save_detection
+    raise RuntimeError(f"Failed to save detection: {e}")
+RuntimeError: Failed to save detection: column "species" of relation "detections" does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\routes\predict.py", line 68, in predict_image
+    raise HTTPException(status_code=500, detail="Detection failed — see server logs.")
+fastapi.exceptions.HTTPException: 500: Detection failed — see server logs.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "asyncpg/protocol/prepared_stmt.pyx", line 175, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+  File "asyncpg/protocol/codecs/base.pyx", line 251, in asyncpg.protocol.protocol.Codec.encode
+  File "asyncpg/protocol/codecs/base.pyx", line 153, in asyncpg.protocol.protocol.Codec.encode_scalar
+  File "asyncpg/pgproto/codecs/datetime.pyx", line 152, in asyncpg.pgproto.pgproto.timestamp_encode
+TypeError: can't subtract offset-naive and offset-aware datetimes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 41, in close_session
+    await database.execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 199, in execute
+    return await connection.execute(query, values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 318, in execute
+    return await self._connection.execute(built_query)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\backends\postgres.py", line 141, in execute
+    return await self._connection.fetchval(query_str, *args)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 718, in fetchval
+    data = await self._execute(query, args, 1, timeout)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 2033, in _do_execute
+    result = await executor(stmt, None)
+  File "asyncpg/protocol/protocol.pyx", line 184, in bind_execute
+  File "asyncpg/protocol/prepared_stmt.pyx", line 204, in asyncpg.protocol.protocol.PreparedStatementState._encode_bind_msg
+asyncpg.exceptions.DataError: invalid input for query argument $1: datetime.datetime(2026, 3, 17, 19, 42, 2... (can't subtract offset-naive and offset-aware datetimes)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 95, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\cors.py", line 153, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 116, in app
+    response = await f(request)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\fastapi\routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+  File "D:\VSproject\aie223-midterm\web_app\app\routes\predict.py", line 71, in predict_image
+    await close_session(session_id)
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 46, in close_session
+    raise RuntimeError(f"Failed to close session {session_id}: {e}")
+RuntimeError: Failed to close session 8babd5ba-82d4-4980-9c9d-0ac6b7caa527: invalid input for query argument $1: datetime.datetime(2026, 3, 17, 19, 42, 2... (can't subtract offset-naive and offset-aware datetimes)
+2026-03-18 02:43:22,557 | INFO     | main | Shutting down...
+2026-03-18 02:43:22,572 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:43:22,573 | INFO     | main | Database disconnected.
+2026-03-18 02:43:27,990 | INFO     | main | Starting up — env: development
+2026-03-18 02:43:28,501 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:43:28,501 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:43:28,501 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:43:53,426 | INFO     | main | Shutting down...
+2026-03-18 02:43:53,441 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:43:53,442 | INFO     | main | Database disconnected.
+2026-03-18 02:43:58,421 | INFO     | main | Starting up — env: development
+2026-03-18 02:43:58,799 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 02:43:58,800 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 02:43:58,800 | INFO     | main | YOLO model ready on cpu
+2026-03-18 02:44:07,615 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-03-18 02:44:07,615 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-03-18 02:44:07,616 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:150]
+2026-03-18 02:44:07,616 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:44:07,616 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[152:164]
+2026-03-18 02:44:07,616 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[166:176]
+2026-03-18 02:44:07,616 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:44:07,617 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-03-18 02:44:07,617 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[180:84739]
+2026-03-18 02:44:07,617 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-03-18 02:44:07,617 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-03-18 02:44:07,619 | DEBUG    | databases | Query:          INSERT INTO sessions (id, device_info)         VALUES ($2, $1)      Args: ('Single Upload', 'dea9522f-b770-4006-a32b-f71ee1bdad45')
+2026-03-18 02:44:07,900 | INFO     | app.model.detector | Detected 3 object(s)
+2026-03-18 02:44:07,905 | INFO     | app.utils.draw_boxes | Saved annotated image to app\static\outputs\f50e0a90dc3a4dc6ab47de9b8ea713a5.jpg
+2026-03-18 02:44:07,906 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[0.3189697265625, 125.16563415527344, 358.3455810546875, 241.52061462402344]', 0.8355, None, 'dea9522f-b770-4006-a32b-f71ee1bdad45', 'Kajuli')
+2026-03-18 02:44:07,908 | ERROR    | app.routes.predict | Prediction failed: Failed to save detection: column "species" of relation "detections" does not exist
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 70, in save_detection
+    await database.execute(query=query, values=values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 199, in execute
+    return await connection.execute(query, values)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\core.py", line 318, in execute
+    return await self._connection.execute(built_query)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\databases\backends\postgres.py", line 141, in execute
+    return await self._connection.fetchval(query_str, *args)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 718, in fetchval
+    data = await self._execute(query, args, 1, timeout)
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 2013, in _do_execute
+    stmt = await self._get_statement(
+  File "D:\VSproject\aie223-midterm\web_app\venv\lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "species" of relation "detections" does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VSproject\aie223-midterm\web_app\app\routes\predict.py", line 55, in predict_image
+    await save_detection(
+  File "D:\VSproject\aie223-midterm\web_app\app\database\db.py", line 72, in save_detection
+    raise RuntimeError(f"Failed to save detection: {e}")
+RuntimeError: Failed to save detection: column "species" of relation "detections" does not exist
+2026-03-18 02:44:07,911 | DEBUG    | databases | Query:          UPDATE sessions         SET end_time = $1         WHERE id = $2      Args: (datetime.datetime(2026, 3, 18, 2, 44, 7, 910258), 'dea9522f-b770-4006-a32b-f71ee1bdad45')
+2026-03-18 02:45:30,183 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-03-18 02:45:30,184 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-03-18 02:45:30,184 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:150]
+2026-03-18 02:45:30,184 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:45:30,184 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[152:164]
+2026-03-18 02:45:30,184 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[166:176]
+2026-03-18 02:45:30,185 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:45:30,185 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-03-18 02:45:30,185 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[180:84739]
+2026-03-18 02:45:30,185 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-03-18 02:45:30,185 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-03-18 02:45:30,186 | DEBUG    | databases | Query:          INSERT INTO sessions (id, device_info)         VALUES ($2, $1)      Args: ('Single Upload', 'fb53e8fc-beb2-49d2-a44c-7d219f6d0180')
+2026-03-18 02:45:30,298 | INFO     | app.model.detector | Detected 3 object(s)
+2026-03-18 02:45:30,302 | INFO     | app.utils.draw_boxes | Saved annotated image to app\static\outputs\1dd752ce994843fe90d27432b042eeec.jpg
+2026-03-18 02:45:30,303 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[0.3189697265625, 125.16563415527344, 358.3455810546875, 241.52061462402344]', 0.8355, None, 'fb53e8fc-beb2-49d2-a44c-7d219f6d0180', 'Kajuli')
+2026-03-18 02:45:30,308 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[158.53558349609375, 15.259323120117188, 597.6292114257812, 214.75958251953125]', 0.7831, None, 'fb53e8fc-beb2-49d2-a44c-7d219f6d0180', 'Kajuli')
+2026-03-18 02:45:30,309 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[199.6404571533203, 189.31089782714844, 636.7990112304688, 328.346435546875]', 0.7305, None, 'fb53e8fc-beb2-49d2-a44c-7d219f6d0180', 'Kajuli')
+2026-03-18 02:45:30,311 | DEBUG    | databases | Query:          UPDATE sessions         SET end_time = $1         WHERE id = $2      Args: (datetime.datetime(2026, 3, 18, 2, 45, 30, 309874), 'fb53e8fc-beb2-49d2-a44c-7d219f6d0180')
+2026-03-18 02:45:30,312 | INFO     | app.routes.predict | predict_image: 3 detection(s) for session fb53e8fc-beb2-49d2-a44c-7d219f6d0180
+2026-03-18 02:45:46,595 | DEBUG    | databases | Query:          SELECT * FROM detections         ORDER BY create_at DESC         LIMIT $1 OFFSET $2      Args: (50, 0)
+2026-03-18 02:46:04,600 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-03-18 02:46:04,600 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-03-18 02:46:04,600 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:150]
+2026-03-18 02:46:04,600 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:46:04,600 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[152:164]
+2026-03-18 02:46:04,601 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[166:176]
+2026-03-18 02:46:04,601 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:46:04,601 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-03-18 02:46:04,601 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[180:53897]
+2026-03-18 02:46:04,601 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-03-18 02:46:04,601 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-03-18 02:46:04,602 | DEBUG    | databases | Query:          INSERT INTO sessions (id, device_info)         VALUES ($2, $1)      Args: ('Single Upload', '4e43bb33-629c-4f9f-b470-c100f43e6288')
+2026-03-18 02:46:04,732 | INFO     | app.model.detector | Detected 1 object(s)
+2026-03-18 02:46:04,747 | INFO     | app.utils.draw_boxes | Saved annotated image to app\static\outputs\f43ea384fc7842b897b56c48992148f7.jpg
+2026-03-18 02:46:04,748 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[73.27278900146484, 99.7847900390625, 253.83389282226562, 576.0717163085938]', 0.8278, None, '4e43bb33-629c-4f9f-b470-c100f43e6288', 'Shing')
+2026-03-18 02:46:04,749 | DEBUG    | databases | Query:          UPDATE sessions         SET end_time = $1         WHERE id = $2      Args: (datetime.datetime(2026, 3, 18, 2, 46, 4, 749477), '4e43bb33-629c-4f9f-b470-c100f43e6288')
+2026-03-18 02:46:04,750 | INFO     | app.routes.predict | predict_image: 1 detection(s) for session 4e43bb33-629c-4f9f-b470-c100f43e6288
+2026-03-18 02:46:21,009 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-03-18 02:46:21,010 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[42:61]
+2026-03-18 02:46:21,010 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[63:150]
+2026-03-18 02:46:21,010 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:46:21,010 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[152:164]
+2026-03-18 02:46:21,010 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[166:176]
+2026-03-18 02:46:21,011 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-03-18 02:46:21,011 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-03-18 02:46:21,011 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[180:16384]
+2026-03-18 02:46:21,011 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:37056]
+2026-03-18 02:46:21,011 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-03-18 02:46:21,011 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-03-18 02:46:21,011 | DEBUG    | databases | Query:          INSERT INTO sessions (id, device_info)         VALUES ($2, $1)      Args: ('Single Upload', 'a1c4e397-5d46-4046-b979-67aca5818ca2')
+2026-03-18 02:46:21,126 | INFO     | app.model.detector | Detected 1 object(s)
+2026-03-18 02:46:21,130 | INFO     | app.utils.draw_boxes | Saved annotated image to app\static\outputs\37bd8b37d4314ad3ad3175ccf7b0faf9.jpg
+2026-03-18 02:46:21,130 | DEBUG    | databases | Query:          INSERT INTO detections (session_id, species, confidence, bbox, image_path)         VALUES ($4, $5, $2, $1, $3)      Args: ('[87.88009643554688, 81.09735107421875, 292.49774169921875, 637.2066040039062]', 0.8766, None, 'a1c4e397-5d46-4046-b979-67aca5818ca2', 'Shol')
+2026-03-18 02:46:21,131 | DEBUG    | databases | Query:          UPDATE sessions         SET end_time = $1         WHERE id = $2      Args: (datetime.datetime(2026, 3, 18, 2, 46, 21, 131541), 'a1c4e397-5d46-4046-b979-67aca5818ca2')
+2026-03-18 02:46:21,132 | INFO     | app.routes.predict | predict_image: 1 detection(s) for session a1c4e397-5d46-4046-b979-67aca5818ca2
+2026-03-18 03:03:07,302 | INFO     | main | Shutting down...
+2026-03-18 03:03:07,302 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 03:03:07,303 | INFO     | main | Database disconnected.
+2026-03-18 03:03:12,779 | INFO     | main | Starting up — env: development
+2026-03-18 03:03:13,175 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 03:03:13,175 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 03:03:13,175 | INFO     | main | YOLO model ready on cpu
+2026-03-18 03:15:25,943 | INFO     | main | Shutting down...
+2026-03-18 03:15:25,943 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 03:15:25,944 | INFO     | main | Database disconnected.
+2026-03-18 03:15:31,511 | INFO     | main | Starting up — env: development
+2026-03-18 03:15:31,893 | INFO     | databases | Connected to database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 03:15:31,893 | INFO     | main | Database connected: postgresql://postgres:Tomon230547@localhost:5432/fish_species_db
+2026-03-18 03:15:31,893 | INFO     | main | YOLO model ready on cpu
+2026-03-18 03:17:20,430 | INFO     | main | Shutting down...
+2026-03-18 03:17:20,446 | INFO     | databases | Disconnected from database postgresql://postgres:********@localhost:5432/fish_species_db
+2026-03-18 03:17:20,447 | INFO     | main | Database disconnected.

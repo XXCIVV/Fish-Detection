@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}500 — Server Error{% endblock %}
+
+{% block content %}
+<div class="page" style="display:flex;align-items:center;justify-content:center;min-height:70vh;">
+  <div style="text-align:center;max-width:400px;">
+    <p style="font-family:var(--mono);font-size:72px;font-weight:500;color:var(--border);line-height:1;margin-bottom:1rem;">500</p>
+    <h1 class="page-title">Something went wrong</h1>
+    <p class="page-subtitle" style="margin-bottom:2rem;">An unexpected error occurred on the server. Check the logs for details.</p>
+    <div style="display:flex;gap:10px;justify-content:center;">
+      <a href="/" class="btn btn-primary">Go home</a>
+      <button class="btn btn-ghost" onclick="location.reload()">Try again</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

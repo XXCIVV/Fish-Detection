@@ -1,0 +1,28 @@
+# Ignore virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Ignore OS system files
+.DS_Store
+Thumbs.db
+
+# Ignore Model weights
+app/models/*.pt
+app/models/*.onnx
+
+# Ignore the .env file that contains environment variables
+.env
+
+# ignore logs
+logs/
+
+# Ignore User uploads
+app/static/uploads/*
+app/static/outputs/*
+!app/static/uploads/.gitkeep
+!app/static/outputs/.gitkeep
+
+# Ignore the database file
+app/database/*.db
+app/database/*.sqlite

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock %}
+
+{% block content %}
+<style>
+  .conf-bar-fill.conf-success { background: var(--success); }
+  .conf-bar-fill.conf-warning { background: var(--warning); }
+  .conf-bar-fill.conf-danger { background: var(--danger); }
+  .conf-bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .conf-bar-bg { flex: 1; height: 20px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .conf-bar-fill { height: 100%; transition: width 0.3s ease; }
+</style>
+<div class="page">
+  <h1 class="page-title">Detection history</h1>
+  <p class="page-subtitle">All past detections across sessions</p>
+
+  <div class="card" style="padding:0; overflow:hidden;">
+    {% if detections %}
+    <table class="hist-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Species</th>
+          <th>Confidence</th>
+          <th>Session</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for det in detections %}
+        <tr>
+          <td>
+            {% if det.image_path %}
+              <img class="thumb" src="/static/outputs/{{ det.image_path | basename }}" alt="{{ det.species }}">
+            {% else %}
+              <div class="thumb-placeholder">N/A</div>
+            {% endif %}
+          </td>
+          <td><strong>{{ det.species }}</strong></td>
+          <td>
+            <div class="conf-bar-wrap">
+              <div class="conf-bar-bg">
+                <div class="conf-bar-fill {% if det.confidence >= 0.8 %}conf-success{% elif det.confidence >= 0.6 %}conf-warning{% else %}conf-danger{% endif %}" style="width: {{ (det.confidence * 100) | round(1) }}%;">
+                </div>
+              </div>
+              <span style="font-family:var(--mono);font-size:12px;min-width:42px">
+                {{ (det.confidence * 100) | round(1) }}%
+              </span>
+            </div>
+          </td>
+          <td style="font-family: var(--mono); font-size: 11px; color: var(--muted);">
+            {{ det.session_id[:8] }}…
+          </td>
+          <td style="font-size: 12px; color: var(--muted);">
+            {{ det.created_at }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="empty">
+      <p class="empty-title">No detections yet</p>
+      <p class="empty-desc">Upload an image to get started.</p>
+      <a href="/" class="btn btn-primary" style="margin-top:1rem; display:inline-flex;">Go detect</a>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if detections %}
+  <div id="pagination" class="pagination"></div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if detections %}
+<script>
+// client-side pagination — no extra API call needed for small datasets
+const ROWS_PER_PAGE = 20;
+const rows = document.querySelectorAll('.hist-table tbody tr');
+const total = rows.length;
+let current = 1;
+
+function showPage(page) {
+  current = page;
+  const start = (page - 1) * ROWS_PER_PAGE;
+  const end   = start + ROWS_PER_PAGE;
+  rows.forEach((r, i) => r.style.display = (i >= start && i < end) ? '' : 'none');
+  renderPagination();
+}
+
+function renderPagination() {
+  const pages = Math.ceil(total / ROWS_PER_PAGE);
+  if (pages <= 1) return;
+  const el = document.getElementById('pagination');
+  el.innerHTML = '';
+
+  const prev = document.createElement('button');
+  prev.className = 'page-btn';
+  prev.textContent = '← Prev';
+  prev.disabled = current === 1;
+  prev.onclick = () => showPage(current - 1);
+  el.appendChild(prev);
+
+  for (let i = 1; i <= pages; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn' + (i === current ? ' active' : '');
+    btn.textContent = i;
+    btn.onclick = () => showPage(i);
+    el.appendChild(btn);
+  }
+
+  const next = document.createElement('button');
+  next.className = 'page-btn';
+  next.textContent = 'Next →';
+  next.disabled = current === pages;
+  next.onclick = () => showPage(current + 1);
+  el.appendChild(next);
+}
+
+showPage(1);
+</script>
+{% endif %}
+{% endblock %}

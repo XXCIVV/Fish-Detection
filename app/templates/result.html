@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Result{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:2rem;">
+    <a href="/" class="btn btn-ghost" style="padding:8px 14px; font-size:13px;">← Back</a>
+    <div>
+      <h1 class="page-title" style="margin-bottom:0">Detection result</h1>
+      <p class="page-subtitle" style="margin-bottom:0" id="result-meta">—</p>
+    </div>
+  </div>
+
+  <div id="no-result" class="empty" style="display:none">
+    <p class="empty-title">No result found</p>
+    <p class="empty-desc">Go back and upload an image first.</p>
+  </div>
+
+  <div id="result-content">
+    <div class="result-img-wrap">
+      <img id="result-img" src="" alt="Detection result">
+    </div>
+
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <span style="font-size:14px; font-weight:500;">Detections</span>
+        <span class="badge badge-info" id="det-count">0 found</span>
+      </div>
+
+      <div id="no-detections" class="empty" style="display:none; padding:1.5rem 0;">
+        <p class="empty-title">No fish detected</p>
+        <p class="empty-desc">Try a clearer image or adjust the confidence threshold.</p>
+      </div>
+
+      <table class="det-table" id="det-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Species</th>
+            <th>Confidence</th>
+            <th>Bounding box</th>
+          </tr>
+        </thead>
+        <tbody id="det-tbody"></tbody>
+      </table>
+    </div>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <a href="/" class="btn btn-primary">Detect another</a>
+      <a id="download-btn" class="btn btn-ghost" download="result.jpg">Download image</a>
+      <a href="/history" class="btn btn-ghost">View history</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const data = JSON.parse(sessionStorage.getItem('lastResult') || 'null');
+
+if (!data) {
+  document.getElementById('no-result').style.display = 'block';
+  document.getElementById('result-content').style.display = 'none';
+} else {
+  const dets = data.detections || [];
+
+  document.getElementById('result-img').src = data.output_image;
+  document.getElementById('download-btn').href = data.output_image;
+  document.getElementById('result-meta').textContent =
+    `Session ${data.session_id.slice(0,8)}… · ${dets.length} detection${dets.length !== 1 ? 's' : ''}`;
+  document.getElementById('det-count').textContent =
+    dets.length + ' found';
+
+  if (dets.length === 0) {
+    document.getElementById('det-table').style.display = 'none';
+    document.getElementById('no-detections').style.display = 'block';
+  } else {
+    const tbody = document.getElementById('det-tbody');
+    dets.forEach((d, i) => {
+      const conf = (d.confidence * 100).toFixed(1);
+      const bbox = d.bbox.map(v => Math.round(v)).join(', ');
+      const color = conf >= 80 ? 'var(--success)' : conf >= 60 ? 'var(--warning)' : 'var(--danger)';
+      tbody.innerHTML += `
+        <tr>
+          <td style="color:var(--hint);font-family:var(--mono);font-size:12px">${i+1}</td>
+          <td><strong>${d.species}</strong></td>
+          <td>
+            <div class="conf-bar-wrap">
+              <div class="conf-bar-bg">
+                <div class="conf-bar-fill" style="width:${conf}%;background:${color}"></div>
+              </div>
+              <span style="font-family:var(--mono);font-size:12px;min-width:42px">${conf}%</span>
+            </div>
+          </td>
+          <td style="font-family:var(--mono);font-size:11px;color:var(--muted)">[${bbox}]</td>
+        </tr>`;
+    });
+  }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% block title %}Detect{% endblock %}
+
+{% block content %}
+<div class="page">
+    <h1 class="page-title">Fish species detection</h1>
+    <p class="page-subtitle">Upload an image to identify fish species using YOLOv11</p>
+
+    <div class="alert alert-danger" id="error-msg"></div>
+
+    <div class="card">
+        <div class="upload-zone" id="drop-zone">
+            <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+            </svg>
+            <p class="upload-label">Drop an image here or click to browse</p>
+            <p class="upload-hint">JPG, PNG, WebP — max 10 MB</p>
+        </div>
+
+        <div class="preview-wrap" id="preview-wrap">
+            <img id="preview-img" src="" alt="Preview">
+            <div class="preview-meta">
+                <span id="preview-name">—</span>
+                <span id="preview-size">—</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn-primary" id="submit-btn" disabled>
+            <div class="spinner" id="spinner"></div>
+            <span id="btn-label">Run detection</span>
+        </button>
+        <button class="btn btn-ghost" id="clear-btn" style="display:none">Clear</button>
+    </div>
+
+    <hr style="margin: 30px 0; border: 1px solid #374151;">
+
+    <h3 class="page-subtitle" style="text-align: left; margin-bottom: 15px;">Real-Time Detection</h3>
+    <div style="display:flex; gap:10px; align-items:center; margin-bottom: 20px;">
+        <button class="btn btn-primary" id="webcam-btn">Start Webcam</button>
+        <button class="btn btn-primary" id="screen-btn">Start Screen Share</button>
+        <button class="btn btn-primary" id="stop-stream-btn" style="display:none; background-color: #ef4444;">Stop Stream</button>
+    </div>
+
+    <div class="stream-wrap" id="stream-wrap" style="display:none; position:relative; width:100%; max-width:640px; margin:0 auto; overflow:hidden; border-radius:12px; background:#000;">
+        <video id="video-stream" autoplay playsinline muted style="width:100%; display:block;"></video>
+        <canvas id="canvas-overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const previewWrap = document.getElementById('preview-wrap');
+    const previewImg = document.getElementById('preview-img');
+    const previewName = document.getElementById('preview-name');
+    const previewSize = document.getElementById('preview-size');
+    const submitBtn = document.getElementById('submit-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const spinner = document.getElementById('spinner');
+    const btnLabel = document.getElementById('btn-label');
+    const errorMsg = document.getElementById('error-msg');
+
+    let selectedFile = null;
+
+    function formatBytes(b) {
+        if (b < 1024) return b + ' B';
+        if (b < 1024 * 1024) return (b / 1024).toFixed(1) + ' KB';
+        return (b / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function showPreview(file) {
+        selectedFile = file;
+        const url = URL.createObjectURL(file);
+        previewImg.src = url;
+        previewName.textContent = file.name;
+        previewSize.textContent = formatBytes(file.size);
+        previewWrap.style.display = 'block';
+        submitBtn.disabled = false;
+        clearBtn.style.display = 'inline-flex';
+        hideError();
+    }
+
+    function clearAll() {
+        selectedFile = null;
+        fileInput.value = '';
+        previewImg.src = '';
+        previewWrap.style.display = 'none';
+        submitBtn.disabled = true;
+        clearBtn.style.display = 'none';
+        hideError();
+    }
+
+    function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.style.display = 'block';
+    }
+    function hideError() {
+        errorMsg.style.display = 'none';
+    }
+
+    function setLoading(on) {
+        spinner.style.display = on ? 'block' : 'none';
+        btnLabel.textContent = on ? 'Detecting...' : 'Run detection';
+        submitBtn.disabled = on;
+        clearBtn.disabled = on;
+    }
+
+    // file input change
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files[0]) showPreview(fileInput.files[0]);
+    });
+
+    // make entire dropzone clickable
+    dropZone.addEventListener('click', (e) => {
+        if (e.target !== fileInput) {
+            fileInput.click();
+        }
+    });
+
+    // drag and drop
+    dropZone.addEventListener('dragover', e => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) showPreview(file);
+        else showError('Please drop a valid image file.');
+    });
+
+    clearBtn.addEventListener('click', clearAll);
+
+    // submit
+    submitBtn.addEventListener('click', async () => {
+        if (!selectedFile) return;
+
+        setLoading(true);
+        hideError();
+
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+        try {
+            const res = await fetch('/predict', { method: 'POST', body: formData });
+            const data = await res.json();
+
+            if (!res.ok) {
+                showError(data.detail || 'Detection failed. Please try again.');
+                setLoading(false);
+                return;
+            }
+
+            // store result in sessionStorage and redirect to result page
+            sessionStorage.setItem('lastResult', JSON.stringify(data));
+            window.location.href = '/result';
+
+        } catch (err) {
+            showError('Network error — is the server running?');
+            setLoading(false);
+        }
+    });
+
+    // --- Real-time Stream Logic ---
+    const webcamBtn = document.getElementById('webcam-btn');
+    const screenBtn = document.getElementById('screen-btn');
+    const stopStreamBtn = document.getElementById('stop-stream-btn');
+    const streamWrap = document.getElementById('stream-wrap');
+    const videoStream = document.getElementById('video-stream');
+    const canvasOverlay = document.getElementById('canvas-overlay');
+    const ctxOverlay = canvasOverlay.getContext('2d');
+    
+    let ws = null;
+    let mdStream = null;
+    let frameInterval = null;
+    const offscreenCanvas = document.createElement('canvas');
+    const offCtx = offscreenCanvas.getContext('2d');
+
+    function stopStream() {
+        if (mdStream) mdStream.getTracks().forEach(t => t.stop());
+        if (frameInterval) clearInterval(frameInterval);
+        if (ws) { ws.close(); ws = null; }
+        streamWrap.style.display = 'none';
+        stopStreamBtn.style.display = 'none';
+        webcamBtn.style.display = 'inline-flex';
+        screenBtn.style.display = 'inline-flex';
+    }
+
+    async function startStream(type = 'webcam') {
+        try {
+            if (type === 'webcam') {
+                mdStream = await navigator.mediaDevices.getUserMedia({ video: { width: { ideal: 640 }, height: { ideal: 480 } } });
+            } else {
+                mdStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+            }
+            
+            videoStream.srcObject = mdStream;
+            await new Promise(r => videoStream.onloadedmetadata = r);
+            videoStream.play();
+            
+            streamWrap.style.display = 'block';
+            stopStreamBtn.style.display = 'inline-flex';
+            webcamBtn.style.display = 'none';
+            screenBtn.style.display = 'none';
+            hideError();
+            
+            canvasOverlay.width = videoStream.videoWidth;
+            canvasOverlay.height = videoStream.videoHeight;
+            offscreenCanvas.width = videoStream.videoWidth;
+            offscreenCanvas.height = videoStream.videoHeight;
+
+            const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            ws = new WebSocket(`${wsProtocol}//${window.location.host}/ws/stream`);
+            
+            ws.onopen = () => {
+                frameInterval = setInterval(() => {
+                    if (ws.readyState !== WebSocket.OPEN) return;
+                    offCtx.drawImage(videoStream, 0, 0, offscreenCanvas.width, offscreenCanvas.height);
+                    offscreenCanvas.toBlob(blob => {
+                        if (blob && ws.readyState === WebSocket.OPEN) ws.send(blob);
+                    }, 'image/jpeg', 0.8);
+                }, 1000 / 5); // 5 FPS
+            };
+
+            ws.onmessage = (e) => {
+                const data = JSON.parse(e.data);
+                drawOverlayBoxes(data.detections);
+            };
+
+            ws.onerror = () => showError('WebSocket error occurred.');
+            ws.onclose = () => stopStream();
+            mdStream.getVideoTracks()[0].onended = () => stopStream();
+
+        } catch (err) {
+            console.error(err);
+            if (err.name !== 'NotAllowedError') {
+                showError('Could not access media device.');
+            }
+        }
+    }
+
+    function drawOverlayBoxes(detections) {
+        ctxOverlay.clearRect(0, 0, canvasOverlay.width, canvasOverlay.height);
+        if (!detections) return;
+        
+        detections.forEach(det => {
+            const [x1, y1, x2, y2] = det.bbox;
+            ctxOverlay.strokeStyle = '#22c55e'; // green-500
+            ctxOverlay.lineWidth = 3;
+            ctxOverlay.strokeRect(x1, y1, x2 - x1, y2 - y1);
+            
+            ctxOverlay.fillStyle = '#22c55e';
+            const label = `${det.species} ${(det.confidence * 100).toFixed(0)}%`;
+            ctxOverlay.font = '16px system-ui, sans-serif';
+            const textWidth = ctxOverlay.measureText(label).width;
+            
+            // bg rect
+            const yRect = y1 > 24 ? y1 - 24 : y1;
+            ctxOverlay.fillRect(x1, yRect, textWidth + 8, 24);
+            
+            ctxOverlay.fillStyle = '#000';
+            ctxOverlay.fillText(label, x1 + 4, yRect + 17);
+        });
+    }
+
+    webcamBtn.addEventListener('click', () => startStream('webcam'));
+    screenBtn.addEventListener('click', () => startStream('screen'));
+    stopStreamBtn.addEventListener('click', stopStream);
+</script>
+{% endblock %}

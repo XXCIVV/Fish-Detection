@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Fish Detection{% endblock %} — FishAI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+  <nav class="nav">
+    <span class="nav-brand"><span>Bengal Bay's</span> Fish Species Detection</span>
+    <div class="nav-links">
+      <a href="/" class="{% if request.url.path == '/' %}active{% endif %}">Detect</a>
+      <a href="/history" class="{% if request.url.path.startswith('/history') %}active{% endif %}">History</a>
+      <a href="/library" class="{% if request.url.path.startswith('/library') %}active{% endif %}">Fish Library</a>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>

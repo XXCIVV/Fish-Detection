@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Fish Library{% endblock %}
+
+{% block content %}
+<div class="page">
+    <h1 class="page-title">Discovered Fish Library</h1>
+    <p class="page-subtitle">A catalog of all unique fish species detected so far</p>
+
+    <div class="card" style="padding: 20px;">
+        {% if not library %}
+            <div style="text-align: center; color: #6b7280; padding: 40px;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto; display: block; filter: opacity(0.5);"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                <p>No species discovered yet. Start detecting!</p>
+            </div>
+        {% else %}
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+                {% for item in library %}
+                <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: background-color 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f9fafb'" onmouseout="this.style.backgroundColor='#fff'">
+                    <h3 style="margin-top: 0; margin-bottom: 12px; color: #111827; font-size: 1.25rem;">{{ item.species }}</h3>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+                        <p style="margin: 0; color: #4b5563;"><strong style="color: #374151;">Total Detections:</strong> {{ item.total_detections }}</p>
+                        <p style="margin: 0; color: #4b5563;"><strong style="color: #374151;">Max Confidence:</strong> {{ (item.max_conf * 100) | round(1) }}%</p>
+                        <p style="margin: 0; color: #9ca3af; font-size: 0.85rem;"><strong style="color: #6b7280;">Last Seen:</strong> {{ item.last_seen.strftime('%Y-%m-%d %H:%M') if item.last_seen else 'N/A' }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
