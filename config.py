@@ -6,6 +6,7 @@ class Config(BaseSettings):
     APP_NAME: str = "Fish Species Detection App"
     APP_ENV: str = "development"
     SECRET_KEY: str = "change-me"
+    ALLOWED_ORIGIN: str = "https://*"
     MAX_STREAM_FPS: int = 5
 
     # Model
